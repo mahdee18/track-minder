@@ -1,49 +1,65 @@
-# Project: Issue Tracker Website
+# IssueTrackerX - Issue Tracker Website
 
 ![Project Logo](link-to-your-logo.png)
 
-## Overview
+## Introduction
 
-The **Issue Tracker Website** is a platform designed to manage and track software development issues, bugs, and feature requests in an organized and efficient manner.
+IssueTrackerX is a feature-rich issue tracker website built using React.js and Next.js. This platform aims to provide an efficient and user-friendly solution for managing and tracking various issues within a project. It incorporates modern design principles, responsive layouts, and secure user authentication to enhance the overall experience.
 
 ## Features
 
-- **Issue Creation:** Users can create new issues, describing the problem or feature request in detail.
-- **Issue Tracking:** Each issue has a unique identifier and status, allowing team members to track its progress.
-- **Collaboration:** Team members can collaborate on issues by adding comments, attachments, and assigning responsibilities.
-- **Labels and Milestones:** Issues can be categorized with labels and grouped under milestones for better organization.
-- **Search and Filtering:** Users can easily search for issues, filter by status, labels, and more.
-- **Responsive Design:** The website is designed to work seamlessly on various devices, including desktops, tablets, and mobile phones.
+- **User Registration and Login System:** IssueTrackerX offers a seamless registration and login process, including options for social login. Users can create accounts, log in securely, and access their personalized dashboards.
 
-## Roles
+- **Efficient Issue Tracking:** The website enables users to report issues with titles, descriptions, statuses, and priorities. Admin users can efficiently manage and update issue details.
 
-- **Developers:** Responsible for implementing new features, fixing bugs, and maintaining the codebase.
-- **Designers:** Create the user interface and ensure a visually appealing and user-friendly experience.
-- **Testers:** Thoroughly test the application to identify and report issues before they are deployed.
-- **Project Managers:** Oversee the project, prioritize tasks, and coordinate between different teams.
+- **User and Admin Dashboards:** Both regular users and admin users have dedicated dashboards. Users can view and manage their created and assigned issues, while admins have access to all issues and user management.
 
-## Code Guidelines
+- **Comments and Assignments:** Users can comment on issues, providing valuable information and updates. Admins can assign issues to specific users for effective task distribution.
 
-- **Consistent Formatting:** Follow the coding style defined in `.eslintrc.js` for consistent code formatting.
-- **Meaningful Variable Names:** Use descriptive variable names that convey the purpose of the variable.
-- **Comments:** Add inline comments to explain complex logic or code sections.
-- **Modularization:** Break down the code into reusable components to promote maintainability.
-- **Git Workflow:** Follow the [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/) branching model for version control.
-- **Testing:** Write unit tests and integration tests to ensure code correctness.
+- **Dark/Light Theme Toggle:** IssueTrackerX prioritizes user experience by offering a dark/light theme toggle, catering to individual preferences.
+
+## Technology Stack
+
+- React.js: Building a dynamic and interactive user interface.
+- Redux: Managing the state of the application and enabling efficient data flow.
+- React Hook Form: Implementing client-side form validation for enhanced user interactions.
+- Axios: Making API calls to interact with the backend server.
+- JWT Authentication: Ensuring secure user authentication and authorization.
+- Next.js: Leveraging server-side rendering, data fetching, and routing for optimal performance.
+- Tailwind CSS: Styling the website with a modern and responsive design.
 
 ## Getting Started
 
-1. Clone this repository: `git clone https://github.com/your-username/issue-tracker.git`
-2. Install dependencies: `npm install`
-3. Start the development server: `npm run dev`
+1. Clone this repository: `git clone https://github.com/mahdee18/track-minder`
+2. Navigate to the project directory: `cd IssueTrackerX`
+3. Install dependencies: `npm install`
+4. Configure environment variables (see `.env`).
+5. Start the development server: `npm run dev`
+6. Access the application in your browser at `http://localhost:3000`
 
-## Contributors
+## Project Structure
 
-Special thanks to the following individuals who contributed to this project:
+- `src`: Contains the main source code of the application.
+  - `components`: Reusable React components used throughout the app.
+  - `pages`: Defines the main website pages using Next.js.
+  - `redux`: Manages the application state using Redux.
+  - `styles`: Houses Tailwind CSS styles and global styling.
+  - `utils`: Includes utility functions and helpers.
 
-- Munir Uddin Mahbub ([@johndoe](https://github.com/Mahbub-Hasan2))
-- Jane Smith ([@janesmith](https://github.com/janesmith))
+## Contribution Guidelines
+
+Contributions to IssueTrackerX are currently limited to the predefined project contributors. If you would like to propose a change or improvement, please contact the project maintainers.
+
+## Authors
+
+- Tanim ([@Tanim](https://github.com/Mahbub-Hasan2))
+- Munir Uddin Mahbub ([@Mahbub-Hasan2](https://github.com/Mahbub-Hasan2))
+- Mahdee Al Amin ([@mahdee18](https://github.com/))
+- RICKY ([@RICKY](https://github.com/))
+- Rajib Rahman ([@Rajib](https://github.com/))
+- Sulthan Mahmud ([@Sulthan](https://github.com/))
+
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is open-source and available under the [MIT License](LICENSE).
