@@ -56,7 +56,6 @@ Contributions to IssueTrackerX are currently limited to the predefined project c
 - Tanim ([@Tanim](https://github.com/Mahbub-Hasan2))
 - Munir Uddin Mahbub ([@Mahbub-Hasan2](https://github.com/Mahbub-Hasan2))
 - RICKY ([@RICKY](https://github.com/))
-- Rajib Rahman ([@Rajib](https://github.com/))
 - Sulthan Mahmud ([@Sulthan](https://github.com/))
 
 
