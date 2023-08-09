@@ -52,9 +52,9 @@ Contributions to IssueTrackerX are currently limited to the predefined project c
 
 ## Authors
 
+- Mahdee Al Amin ([@mahdee18](https://github.com/))
 - Tanim ([@Tanim](https://github.com/Mahbub-Hasan2))
 - Munir Uddin Mahbub ([@Mahbub-Hasan2](https://github.com/Mahbub-Hasan2))
-- Mahdee Al Amin ([@mahdee18](https://github.com/))
 - RICKY ([@RICKY](https://github.com/))
 - Rajib Rahman ([@Rajib](https://github.com/))
 - Sulthan Mahmud ([@Sulthan](https://github.com/))
