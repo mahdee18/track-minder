@@ -4,8 +4,9 @@ import Header from '../components/Home/Header';
 const HomePage = () => {
     return (
         <div>
-            <h1>HomePage</h1>
             <Header/>
+
+            <p className='text-purple-600'>home page body sections</p>
         </div>
     );
 };
