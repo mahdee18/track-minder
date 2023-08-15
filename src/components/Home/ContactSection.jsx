@@ -1,15 +1,14 @@
-import React from 'react';
 
 const ContactSection = () => {
     return (
-        <section className="bg-primary text-light py-16 md:py-24">
+        <section className="bg-primary text-light py-14 px-20">
             <div className="container mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-semibold mb-4">Contact Us</h2>
                 <p className="text-lg md:text-xl text-tertiary mb-8">
                     Have questions? Reach out to us for more information.
                 </p>
-                <div className="grid grid-cols-2">
-                    <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-8">
+                <div className="flex justify-between">
+                    <div className="space-y-6 md:space-y-0 md:space-x-8">
                         <div className="flex items-center">
                             <i className="fas fa-map-marker-alt text-secondary text-xl"></i>
                             <p className="ml-4">123 Main Street, City, Country</p>
@@ -41,7 +40,7 @@ const ContactSection = () => {
                             ></textarea>
                             <button
                                 type="submit"
-                                className="bg-secondary text-tertiary hover:bg-dark py-3 px-8 rounded-full transition duration-300"
+                                className="bg-white text-primary hover:text-white hover:bg-black py-3 px-8 rounded-full transition duration-300"
                             >
                                 Send Message
                             </button>
