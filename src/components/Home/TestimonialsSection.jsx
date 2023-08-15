@@ -29,7 +29,7 @@ const TestimonialsSection = () => {
       image: '/images/testimonial1.jpg', // Replace with actual image URL
     },
     {
-      name: 'Jane Smith',
+      name: 'James Smith',
       role: 'Quality Assurance',
       content:
         'Bug TrackerX has made our bug tracking process seamless and efficient. The collaborative features and analytics tools are impressive and invaluable.',
