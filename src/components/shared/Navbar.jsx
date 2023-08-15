@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const Navbar = () => {
   return (
@@ -8,19 +8,19 @@ const Navbar = () => {
         <nav>
           <ul className="flex space-x-4 md:space-x-6">
             <li>
-              <a href="#" className="text-primary hover:text-secondary">Home</a>
+              <a href="#" className="text-white hover:text-black">Home</a>
             </li>
             <li>
-              <a href="#" className="text-primary hover:text-secondary">Features</a>
+              <a href="#" className="text-white hover:text-black">Features</a>
             </li>
             <li>
-              <a href="#" className="text-primary hover:text-secondary">Pricing</a>
+              <a href="#" className="text-white hover:text-black">Pricing</a>
             </li>
             <li>
-              <a href="#" className="text-primary hover:text-secondary">Contact</a>
+              <a href="#" className="text-white hover:text-black">Contact</a>
             </li>
             <li>
-              <a href="#" className="bg-secondary text-tertiary hover:bg-dark px-3 md:px-4 py-2 rounded-full transition duration-300">Sign Up</a>
+              <a href="#" className="bg-white text-primary hover:bg-dark hover:text-white px-3 py-2 rounded transition duration-300">Sign Up</a>
             </li>
           </ul>
         </nav>

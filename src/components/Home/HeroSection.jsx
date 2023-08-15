@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const HeroSection = () => {
   return (
@@ -10,7 +10,7 @@ const HeroSection = () => {
         </p>
         <a
           href="#"
-          className="bg-secondary text-tertiary hover:bg-dark py-2 px-6 rounded-full transition duration-300 inline-block"
+          className="bg-white text-primary hover:text-white hover:bg-black py-2 px-6 rounded-full transition duration-300 inline-block"
         >
           Get Started
         </a>
