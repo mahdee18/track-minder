@@ -21,8 +21,6 @@ const HomePage = () => {
             <ScreenshotsSection />
             <BlogSection />
             <ContactSection />
-
-            <p className='text-purple-600'>home page body sections</p>
         </div>
     );
 };
