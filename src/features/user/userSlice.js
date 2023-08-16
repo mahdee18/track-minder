@@ -2,17 +2,25 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     accessToken: sessionStorage.getItem("accessToken")
-    ? JSON.parse(sessionStorage.getItem("accessToken"))
-    : "",
+        ? JSON.parse(sessionStorage.getItem("accessToken"))
+        : "",
     userInfo: sessionStorage.getItem("userInfo")
-    ? JSON.parse(sessionStorage.getItem("userInfo"))
-    : {},
+        ? JSON.parse(sessionStorage.getItem("userInfo"))
+        : {},
 }
 
 const userSlice = createSlice({
     name: "user",
-    initialState,
+    initialState: {
+        user: null
+    },
     reducers: {
+        login: (state, action) => {
+            state.user = action.payload;
+        },
+        logout:(state)=>{
+state.user = null;
+        },
         setUserInfo: (state, action) => {
             state.userInfo = action.payload;
             sessionStorage.setItem("userInfo", JSON.stringify(state.userInfo));
@@ -31,5 +39,7 @@ const userSlice = createSlice({
     },
 });
 
+
+export const {login,logout, setUserInfo, setAccessToken, logOutUser } = userSlice.actions;
+export const selectUser = (state) => state.user.user
 export default userSlice.reducer;
-export const { setUserInfo, setAccessToken, logOutUser } = userSlice.actions;
