@@ -2,7 +2,7 @@ import React from 'react';
 
 const CtaSection = () => {
   return (
-    <section className="bg-dark py-16 md:py-24">
+    <section className="bg-dark m-4 rounded-xl py-16 md:py-24">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-semibold text-tertiary mb-4">Ready to Get Started?</h2>
         <p className="text-lg md:text-xl text-light mb-8">
@@ -10,7 +10,7 @@ const CtaSection = () => {
         </p>
         <a
           href="#"
-          className="bg-secondary text-tertiary hover:bg-light py-2 px-6 rounded-full transition duration-300 inline-block"
+          className="bg-lime-950 text-tertiary hover:bg-light py-2 px-6 rounded-full transition duration-300 inline-block"
         >
           Sign Up Now
         </a>

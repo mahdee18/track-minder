@@ -34,7 +34,7 @@ const FeaturesHighlights = () => {
   ];
 
   return (
-    <section className="bg-light py-16 md:py-24">
+    <section className="bg-light px-8 py-16 md:py-24">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-semibold mb-8">Features Highlights</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
