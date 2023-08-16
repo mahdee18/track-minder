@@ -11,7 +11,7 @@ const BlogSection = () => {
     .then(data => setPosts(data))
   },[])
   return (
-    <div className="grid grid-cols-3 gap-6 px-20">
+    <div className="grid grid-cols-3 gap-6 p-20">
       {
         posts.map((post, index) => <BlogCard 
           key={index}
