@@ -34,7 +34,7 @@ const Navbar = () => {
           <div className={`hidden md:block ${isMenuOpen ? 'block' : 'hidden'}`}>
             <div className="ml-4 flex items-center">
               <Link to='/' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</Link>
-              <Link to='instructors' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Features</Link>
+              <Link to='instructors' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Feature</Link>
               <Link to='/classes' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pricing</Link>
               <Link to='/classes' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</Link>
               <Link to='/classes' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign Up</Link>
