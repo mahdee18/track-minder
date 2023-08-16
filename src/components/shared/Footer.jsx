@@ -4,7 +4,7 @@ const Footer = () => {
     <footer className="bg-dark text-light py-4">
       <div className="container mx-auto text-center">
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} BugTrackerX. All rights reserved.
+          &copy; {new Date().getFullYear()} BugTrackerX. All rights reserved. footer
         </p>
         {/* <div className="mt-4">
           <a
