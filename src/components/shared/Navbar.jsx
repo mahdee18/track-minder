@@ -53,13 +53,13 @@ const Navbar = () => {
                   <div className="flex items-center justify-center gap-1">
                     <img
                       title={user.displayName}
-                      className="w-12 h-12 rounded-full mt-2 "
+                      className="w-12 h-12 rounded-full mt-2"
                       src={user.photoURL}
                       alt=""
                     />
                     <button
                       onClick={handleLogOut}
-                      className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-gray-400 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
                       Logout
                     </button>
