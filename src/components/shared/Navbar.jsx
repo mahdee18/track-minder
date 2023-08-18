@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/styles/logo.png';
 // import { AuthContext } from '../../Providers/AuthProvider';
 
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const { user, logOut } = useContext(AuthContext)
@@ -23,88 +24,33 @@ const Navbar = () => {
   // }
 
   return (
-    <nav className="bg-primary p-4">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              {/* <img className='h-12 w-14 rounded-3xl' src={logo} alt="" /> */}
-            </div>
-            <div className="ml-3">
-              <span className="text-white font-bold text-lg">Bug TrackerX</span>
-            </div>
-          </div>
-          <div className="md:hidden">
-            <button
-              onClick={toggleMenu}
-              className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              <FaBars></FaBars>
-            </button>
-          </div>
-          <div className={`hidden md:block ${isMenuOpen ? 'block' : 'hidden'}`}>
-            <div className="ml-4 flex items-center">
-              <Link to='/' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</Link>
-              <Link to='features' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Features</Link>
-              <Link to='/pricing' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pricing</Link>
-              <Link to='/contact' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</Link>
-              {/* {user ? (
-                <div className='flex items-center'>
-                  <div className="flex items-center justify-center gap-1">
-                    <img
-                      title={user.displayName}
-                      className="w-12 h-12 rounded-full mt-2"
-                      src={user.photoURL}
-                      alt=""
-                    />
-                    <button
-                      onClick={handleLogOut}
-                      className="text-gray-400 hover:bg-green-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      Logout
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <button className="btn border-0 bg-success fw-bold rounded-md flex items-center gap-1">
-                  <Link className='text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium' to='/login'>Login</Link>
-                </button>
-              )} */}
-            </div>
-          </div>
-        </div>
-        <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden`}>
-          <div className="ml-4 flex flex-col items-center">
-            <Link to='/' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</Link>
-            <Link to='features' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Features</Link>
-            <Link to='/pricing' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pricing</Link>
-            <Link to='/contact' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</Link>
-            {/* {user ? (
-              <div className='flex items-center'>
-                <div className="flex mt-2 items-center justify-center gap-6">
-                  <img
-                    title={user.displayName}
-                    className="w-12 h-12 rounded-full"
-                    src={user.photoURL}
-                    alt=""
-                  />
-                  <button
-                    onClick={handleLogOut}
-                    className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Logout
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <button className="btn border-0 bg-success fw-bold rounded-md flex items-center gap-1">
-                <Link className='text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium' to='/login'>Login</Link>
-              </button>
-            )} */}
-          </div>
-        </div>
+    <header className="bg-primary py-4 md:py-6">
+      <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
+        <h1 className="text-white text-2xl md:text-3xl font-semibold">Bug TrackerX</h1>
+        <nav>
+          <ul className="flex space-x-4 md:space-x-6">
+            <li>
+              <Link to='/' className="text-white hover:text-black">Home</Link>
+            </li>
+            <li>
+              <Link href="#" className="text-white hover:text-black">Features</Link>
+            </li>
+            <li>
+              <Link to="/pricing" className="text-white hover:text-black">Pricing</Link>
+            </li>
+            <li>
+              <Link to="/about" className="text-white hover:text-black">About Us</Link>
+            </li>
+            <li>
+              <Link to='/contact' className="text-white hover:text-black">Contact</Link>
+            </li>
+            <li>
+              <a href="#" className="bg-white text-primary hover:bg-dark hover:text-white px-3 py-2 rounded transition duration-300">Sign Up</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </nav>
+    </header>
   );
 };
 

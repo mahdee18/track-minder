@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Testimonial = ({ name, role, content, image }) => {
   return (
@@ -38,7 +37,7 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="bg-light m-4 py-16 md:py-24">
+    <section className="bg-light py-16 md:py-24 px-20">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-semibold mb-8">Testimonials</h2>
         <div className="flex flex-col md:flex-row space-y-6 md:space-y-0">

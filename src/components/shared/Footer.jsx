@@ -1,13 +1,12 @@
-import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-light py-8">
+    <footer className="bg-dark text-light py-4">
       <div className="container mx-auto text-center">
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} BugTrackerX. All rights reserved.
+          &copy; {new Date().getFullYear()} BugTrackerX. All rights reserved. footer
         </p>
-        <div className="mt-4">
+        {/* <div className="mt-4">
           <a
             href="#"
             className="text-tertiary hover:text-secondary mx-2 transition duration-300"
@@ -21,7 +20,7 @@ const Footer = () => {
           >
             Terms of Service
           </a>
-        </div>
+        </div> */}
       </div>
     </footer>
   );
