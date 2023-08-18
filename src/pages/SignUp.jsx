@@ -1,111 +1,125 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Register = () => {
+    const { register, handleSubmit } = useForm();
     const [error, setError] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
-    // const navigate = useNavigate();
-    // const location = useLocation();
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    // const { createUser, signInWithGoogle } = useContext(AuthContext);
-    // const from = location.state?.from?.pathname || "/";
+    const { createUser, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const from = location.state?.from?.pathname || "/";
 
-    // const onSubmit = data => {
-    //     const { displayName, email, password, confirmPassword, photoURL } = data;
+    const onSubmit = data => {
+        const { displayName, email, password, confirmPassword, photoURL } = data;
 
-    //     setError("");
+        setError("");
 
-    //     if (password.length < 6) {
-    //         setError("Please add at least 6 characters in your password");
-    //         return;
-    //     }
+        if (password.length < 6) {
+            setError("Please add at least 6 characters in your password");
+            return;
+        }
 
-    //     if (!/[A-Z]/.test(password)) {
-    //         setError("Password must contain at least one capital letter");
-    //         return;
-    //     }
+        if (!/[A-Z]/.test(password)) {
+            setError("Password must contain at least one capital letter");
+            return;
+        }
 
-    //     if (!/[!@#$%^&*]/.test(password)) {
-    //         setError("Password must contain at least one special character");
-    //         return;
-    //     }
+        if (!/[!@#$%^&*]/.test(password)) {
+            setError("Password must contain at least one special character");
+            return;
+        }
 
-    //     if (password !== confirmPassword) {
-    //         setError("Passwords don't match");
-    //         return;
-    //     }
+        if (password !== confirmPassword) {
+            setError("Passwords don't match");
+            return;
+        }
 
-    //     createUser(email, password, displayName, photoURL)
-    //         .then((result) => {
-    //             const loggedUser = result.user;
-    //             console.log(loggedUser);
+        createUser(email, password, displayName, photoURL)
+            .then((result) => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
 
-    //             const savedUser = { name: data.displayName, email: data.email,image:data.photoURL }
+                const savedUser = { name: data.displayName, email: data.email, image: data.photoURL }
 
-    //             fetch('https://assignment12-server-nu.vercel.app/users', {
-    //                 method: "POSt",
-    //                 headers: {
-    //                     'content-type': 'application/json'
-    //                 },
-    //                 body: JSON.stringify(savedUser)
-    //             })
-    //                 .then(res => res.json())
-    //                 .then(data => {
-    //                     if (data.insertedId) {
-    //                         Swal.fire({
-    //                             position: 'top-end',
-    //                             icon: 'success',
-    //                             title: 'User created successfully',
-    //                             showConfirmButton: false,
-    //                             timer: 1500
-    //                         })
-    //                         navigate('/')
-    //                     }
-    //                 })
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //             setError(error.message);
-    //         });
-    // };
+                fetch('https://assignment12-server-nu.vercel.app/users', {
+                    method: "POSt",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(savedUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.insertedId) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'User created successfully',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            navigate('/')
+                        }
+                    })
+            })
+            .catch((error) => {
+                console.log(error);
+                setError(error.message);
+            });
+    };
 
-    // const togglePasswordVisibility = () => {
-    //     setShowPassword(!showPassword);
-    // };
+    const handleGithubSignIn = () => {
+        signInWithGithub()
+            .then(result => {
+                const loggedUser = result.user
+                console.log(loggedUser);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
 
-    // const handleGoogleSignIn = () => {
-    //     signInWithGoogle()
-    //         .then(result => {
-    //             const loggedUser = result.user;
-    //             console.log(loggedUser);
-    //             const savedUser = { name: loggedUser.displayName, email: loggedUser.email ,image:loggedUser.photoURL}
-    //             fetch('https://assignment12-server-nu.vercel.app/users', {
-    //                 method: "POSt",
-    //                 headers: {
-    //                     'content-type': 'application/json'
-    //                 },
-    //                 body: JSON.stringify(savedUser)
-    //             })
-    //                 .then(res => res.json())
-    //                 .then(() => {
-    //                     navigate(from, { replace: true });
-    //                 })
-    //         })
-    //         .error(error => {
-    //             setError(error.message);
-    //         })
-    // };
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                const savedUser = { name: loggedUser.displayName, email: loggedUser.email, image: loggedUser.photoURL }
+                fetch('https://assignment12-server-nu.vercel.app/users', {
+                    method: "POSt",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(savedUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        navigate(from, { replace: true });
+                    })
+            })
+            .error(error => {
+                setError(error.message);
+            })
+    };
 
 
     return (
         <>
             <section className="max-w-7xl mx-auto px-4 py-12">
                 {/* Component: Card with form */}
-                <form 
-                // onSubmit={handleSubmit(onSubmit)} 
-                className="max-w-[415px] mx-auto overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200">
+                <form onSubmit={handleSubmit(onSubmit)} className="max-w-[415px] mx-auto overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200">
                     {/* Body*/}
                     <div className="p-6">
                         <header className="mb-4 text-center">
@@ -118,7 +132,7 @@ const Register = () => {
                                     id="displayName"
                                     type="text"
                                     name="displayName"
-                                    // {...register("displayName", { required: true })}
+                                    {...register("displayName", { required: true })}
                                     placeholder="Your name"
                                     required
                                     className="relative w-full h-10 px-4 text-sm placeholder-transparent transition-all border rounded outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-emerald-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
@@ -138,7 +152,7 @@ const Register = () => {
                                     id="email"
                                     type="email"
                                     name="email"
-                                    // {...register("email", { required: true })}
+                                    {...register("email", { required: true })}
                                     placeholder="your email"
                                     required
                                     className="relative w-full h-10 px-4 text-sm placeholder-transparent transition-all border rounded outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-emerald-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
@@ -159,7 +173,7 @@ const Register = () => {
                                     id="password"
                                     type={showPassword ? "text" : "password"}
                                     name="password"
-                                    // {...register("password", { required: true })}
+                                    {...register("password", { required: true })}
                                     placeholder="your password"
                                     required
                                     className="relative w-full h-10 px-4 pr-12 text-sm placeholder-transparent transition-all border rounded outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-emerald-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
@@ -171,7 +185,7 @@ const Register = () => {
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
                                     strokeWidth="1.5"
-                                    // onClick={togglePasswordVisibility}
+                                    onClick={togglePasswordVisibility}
                                 >
                                     {showPassword ? (
                                         <FaEyeSlash></FaEyeSlash>
@@ -194,7 +208,7 @@ const Register = () => {
                                     id="confirmPassword"
                                     type={showPassword ? "text" : "password"}
                                     name="confirmPassword"
-                                    // {...register("confirmPassword", { required: true })}
+                                    {...register("confirmPassword", { required: true })}
                                     placeholder="Confirm your password"
                                     required
                                     value={confirmPassword}
@@ -208,7 +222,7 @@ const Register = () => {
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
                                     strokeWidth="1.5"
-                                    // onClick={togglePasswordVisibility}
+                                    onClick={togglePasswordVisibility}
                                 >
                                     {showPassword ? (
                                         <FaEyeSlash></FaEyeSlash>
@@ -232,7 +246,8 @@ const Register = () => {
                                     id="photoURL"
                                     type="text"
                                     name="photoURL"
-                                    // {...register("photoURL", { required: true })}
+                                    required
+                                    {...register("photoURL", { required: true })}
                                     placeholder="Your photo url"
                                     className="relative w-full h-10 px-4 text-sm placeholder-transparent transition-all border rounded outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-emerald-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
                                 />
@@ -252,7 +267,7 @@ const Register = () => {
                     <div className="flex justify-end p-6 -mt-5">
                         <button
                             type="submit"
-                            className="btn border-0 inline-flex items-center justify-center w-full h-10 gap-2 px-5 text-sm font-medium tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap bg-success disabled:cursor-not-allowed disabled:borde"
+                            className="btn bg-blue-800 border-0 inline-flex items-center justify-center w-full h-10 gap-2 px-5 text-sm font-medium tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap bg-success disabled:cursor-not-allowed disabled:borde"
                         >
                             <span>Register</span>
                         </button>
@@ -271,12 +286,20 @@ const Register = () => {
                         <span className="my-0 mx-[10px] font-bold text-slate-400">or</span>
                         <hr className="flex-1 border-t border-slate-200" />
                     </div>
-                    <div 
-                    // onClick={handleGoogleSignIn} 
-                    className="flex items-center justify-center gap-[6px] w-ful; mx-6 h-[50px] border bg-blue-200 hover:bg-blue-500 border-slate-200 rounded-md cursor-pointer">
-
-                        <FaGoogle className="w-8 h-8 rounded-md" ></FaGoogle>
+                    <div
+                        onClick={handleGoogleSignIn}
+                        className="flex items-center justify-center gap-2 w-full mx-auto h-12 border bg-blue-600 hover:bg-blue-500 border-slate-200 rounded-md cursor-pointer  text-white"
+                    >
+                        <FaGoogle class="w-8 h-8 rounded-md"></FaGoogle>
                         <span>Continue with Google</span>
+                    </div>
+
+                    <div
+                        onClick={handleGithubSignIn}
+                        className="flex items-center justify-center gap-2 w-full mx-auto h-12 border bg-gray-800 hover:bg-gray-900 border-slate-200 rounded-md cursor-pointer text-white"
+                    >
+                        <FaGithub class="w-8 h-8 rounded-md"></FaGithub>
+                        <span>Continue with Github</span>
                     </div>
                 </form>
                 {/* End Card with form */}

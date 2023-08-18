@@ -1,22 +1,26 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FaBars } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../assets/styles/logo.png';
-import { logOutUser, selectUser } from '../../features/user/userSlice';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const dispatch = useDispatch();
-  const user = useSelector(selectUser);
+  const { user, logOut } = useContext(AuthContext)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleLogOut = () => {
-    dispatch(logOutUser());
-  };
+    logOut()
+      .then(() => {
+
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   return (
     <nav className="bg-primary p-4">
@@ -46,16 +50,16 @@ const Navbar = () => {
               <Link to='/contact' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</Link>
               {user ? (
                 <div className='flex items-center'>
-                  <div className="flex mt-2 items-center justify-center gap-6">
+                  <div className="flex items-center justify-center gap-1">
                     <img
                       title={user.displayName}
-                      className="w-12 h-12 rounded-full"
+                      className="w-12 h-12 rounded-full mt-2"
                       src={user.photoURL}
                       alt=""
                     />
                     <button
                       onClick={handleLogOut}
-                      className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-gray-400 hover:bg-green-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
                       Logout
                     </button>
