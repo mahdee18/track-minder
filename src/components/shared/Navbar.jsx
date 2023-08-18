@@ -2,25 +2,25 @@ import { useContext, useState } from 'react';
 import { FaBars } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import logo from '../../assets/styles/logo.png';
-import { AuthContext } from '../../Providers/AuthProvider';
+// import { AuthContext } from '../../Providers/AuthProvider';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user, logOut } = useContext(AuthContext)
+  // const { user, logOut } = useContext(AuthContext)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleLogOut = () => {
-    logOut()
-      .then(() => {
+  // const handleLogOut = () => {
+  //   logOut()
+  //     .then(() => {
 
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }
 
   return (
     <nav className="bg-primary p-4">
@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <img className='h-12 w-14 rounded-3xl' src={logo} alt="" />
+              {/* <img className='h-12 w-14 rounded-3xl' src={logo} alt="" /> */}
             </div>
             <div className="ml-3">
               <span className="text-white font-bold text-lg">Bug TrackerX</span>
@@ -48,7 +48,7 @@ const Navbar = () => {
               <Link to='features' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Features</Link>
               <Link to='/pricing' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pricing</Link>
               <Link to='/contact' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</Link>
-              {user ? (
+              {/* {user ? (
                 <div className='flex items-center'>
                   <div className="flex items-center justify-center gap-1">
                     <img
@@ -69,7 +69,7 @@ const Navbar = () => {
                 <button className="btn border-0 bg-success fw-bold rounded-md flex items-center gap-1">
                   <Link className='text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium' to='/login'>Login</Link>
                 </button>
-              )}
+              )} */}
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@ const Navbar = () => {
             <Link to='features' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Features</Link>
             <Link to='/pricing' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pricing</Link>
             <Link to='/contact' className="text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</Link>
-            {user ? (
+            {/* {user ? (
               <div className='flex items-center'>
                 <div className="flex mt-2 items-center justify-center gap-6">
                   <img
@@ -100,7 +100,7 @@ const Navbar = () => {
               <button className="btn border-0 bg-success fw-bold rounded-md flex items-center gap-1">
                 <Link className='text-gray-300 hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium' to='/login'>Login</Link>
               </button>
-            )}
+            )} */}
           </div>
         </div>
       </div>
